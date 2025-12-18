@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opall - Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Opall</div>
+        <div class="nav-links">
+            <a href="index.html">Acasă</a>
+            <a href="despre.html">Despre</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Contactează-ne</h1>
+        <p>Ai întrebări? Suntem aici să te ajutăm.</p>
+
+        <div class="contact-layout">
+            <div class="contact-info">
+                <h3>Informații</h3>
+                <p>📍 Strada Exemplului nr. 1, București</p>
+                <p>📧 contact@opall.ro</p>
+                <p>📞 +40 712 345 678</p>
+            </div>
+
+            <div class="contact-form-container">
+                <form id="contact-page-form">
+                    <div class="form-group">
+                        <label>Nume</label>
+                        <input type="text" placeholder="Numele tău" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="Email-ul tău" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mesaj</label>
+                        <textarea placeholder="Scrie mesajul tău aici..." rows="5"
+                            style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff;"></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Trimite Mesaj</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Opall. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        // Specific script for contact form if needed, or reuse main
+        document.getElementById('contact-page-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Mesaj trimis! Te vom contacta în curând.');
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>
