@@ -1,1 +1,0 @@
-# Opall - proiect testare
