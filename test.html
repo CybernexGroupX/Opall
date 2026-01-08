@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avertisment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-color: #ff3e3e;
+            --glow-color: rgba(255, 62, 62, 0.5);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-color);
+            font-family: 'Outfit', sans-serif;
+            overflow: hidden;
+        }
+
+        .warning-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .warning-text {
+            font-size: 4rem;
+            color: var(--text-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse-glow 2s infinite ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .warning-subtext {
+            font-size: 1.2rem;
+            color: #888;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeIn 1s 1s forwards;
+        }
+
+        /* Glitch effect layer */
+        .warning-text::before,
+        .warning-text::after {
+            content: "Codurile dauneaza grav sanatatii";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+        }
+
+        .warning-text::before {
+            left: 2px;
+            text-shadow: -1px 0 #00ffff;
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        .warning-text::after {
+            left: -2px;
+            text-shadow: -1px 0 #ff00ff;
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+                transform: scale(1);
+            }
+
+            50% {
+                text-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color);
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(10px, 9999px, 81px, 0);
+            }
+
+            20% {
+                clip: rect(76px, 9999px, 25px, 0);
+            }
+
+            40% {
+                clip: rect(42px, 9999px, 8px, 0);
+            }
+
+            60% {
+                clip: rect(15px, 9999px, 98px, 0);
+            }
+
+            80% {
+                clip: rect(98px, 9999px, 58px, 0);
+            }
+
+            100% {
+                clip: rect(56px, 9999px, 20px, 0);
+            }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% {
+                clip: rect(65px, 9999px, 100px, 0);
+            }
+
+            20% {
+                clip: rect(2px, 9999px, 55px, 0);
+            }
+
+            40% {
+                clip: rect(89px, 9999px, 15px, 0);
+            }
+
+            60% {
+                clip: rect(23px, 9999px, 78px, 0);
+            }
+
+            80% {
+                clip: rect(54px, 9999px, 32px, 0);
+            }
+
+            100% {
+                clip: rect(10px, 9999px, 86px, 0);
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .warning-text {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warning-container">
+        <h1 class="warning-text">Codurile dauneaza grav sanatatii</h1>
+        <p class="warning-subtext">Consumați cu responsabilitate.</p>
+    </div>
+</body>
+
+</html>
