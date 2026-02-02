@@ -1,0 +1,6 @@
+# Fisiere cu credentiale - NU comite!
+.env
+
+# Fisiere sistem
+.DS_Store
+Thumbs.db
