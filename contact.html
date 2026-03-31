@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Opall</title>
+    <meta name="description" content="Contactează echipa Opall pentru soluții de management și jurizare a evenimentelor artistice.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-hero {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 1rem 4rem 1rem;
+        }
+
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            z-index: 2;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: #a0a0a0;
+            z-index: 2;
+        }
+
+        .contact-section {
+            padding: 4rem 5% 8rem 5%;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-info p {
+            color: #a0a0a0;
+            line-height: 1.8;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: var(--transition-speed);
+        }
+
+        .info-item:hover {
+            border-color: var(--primary-color);
+            transform: translateX(10px);
+        }
+
+        .info-item i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 206, 201, 0.1);
+            border-radius: 50%;
+        }
+
+        .info-item-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-item-text p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        .contact-form-wrapper {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+
+        .contact-form-wrapper h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 10px;
+            color: var(--text-color);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            transition: var(--transition-speed);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(108, 92, 231, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition-speed);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+
+            .contact-form-wrapper {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">Opall</a>
+        <ul class="nav-links">
+            <li><a href="index.html#hero">Acasa</a></li>
+            <li><a href="index.html#about">Despre</a></li>
+            <li><a href="index.html#features">Functionalitati</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header class="contact-hero">
+        <div class="hero-content">
+            <h1 class="fade-in">Contacteaza-ne</h1>
+            <p class="fade-in delay-1">Suntem aici sa te ajutam. Trimite-ne un mesaj si iti vom raspunde cat mai curand.</p>
+        </div>
+        <div class="hero-background">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <div>
+                    <h2>Informatii de Contact</h2>
+                    <p>Ai intrebari despre platforma noastra sau vrei sa programezi o demonstratie? Echipa noastra este pregatita sa te ajute.</p>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div class="info-item-text">
+                        <h3>Email</h3>
+                        <p>contact@opall.ro</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div class="info-item-text">
+                        <h3>Telefon</h3>
+                        <p>+40 700 000 000</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-item-text">
+                        <h3>Adresa</h3>
+                        <p>Bucuresti, Romania</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-item-text">
+                        <h3>Program</h3>
+                        <p>Luni - Vineri: 09:00 - 18:00</p>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <h2>Trimite un Mesaj</h2>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nume Complet</label>
+                        <input type="text" id="name" name="name" placeholder="Introdu numele tau" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresa de Email</label>
+                        <input type="email" id="email" name="email" placeholder="Introdu adresa de email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subiect</label>
+                        <input type="text" id="subject" name="subject" placeholder="Despre ce este mesajul?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesaj</label>
+                        <textarea id="message" name="message" placeholder="Scrie mesajul tau aici..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Trimite Mesajul</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>Opall</h2>
+                <p>Digitalizam arta competitiei.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Link-uri Rapide</h3>
+                <a href="index.html#hero">Acasa</a>
+                <a href="index.html#about">Despre</a>
+                <a href="index.html#features">Servicii</a>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> contact@opall.ro</p>
+                <p><i class="fas fa-phone"></i> +40 700 000 000</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Opall. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
